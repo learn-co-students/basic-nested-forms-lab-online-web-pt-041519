@@ -23,3 +23,5 @@ domain: posts with an author
 this is about using a custom attribute writer author_attributes= where a post needs an author by name in a form and the authors should be unique.
 
 provide an authors show and index view that we can test against for unique authors - as in, in our tests, when we submit a post with an author by name the author show page should reflect that post and the index page should not duplicate the author listsing. 1 unique author. 
+
+<a href='https://learn.co/lessons/basic-nested-forms-lab' data-visibility='hidden'>View this lesson on Learn.co</a>
