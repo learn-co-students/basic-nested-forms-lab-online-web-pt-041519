@@ -16,6 +16,7 @@ The first data model we're going to be working with today is a recipe with ingre
 
   * Recipe
     * has many ingredients
+    * title:string    
   * Ingredient
     * belongs to a recipe
     * ingredient.name: string
