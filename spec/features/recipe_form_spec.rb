@@ -16,7 +16,6 @@ describe "the recipe form", :type => :feature do
     fill_in :recipe_ingredients_attributes_1_quantity, with: '1 tablespoon'
     fill_in :recipe_ingredients_attributes_1_name, with: 'vanilla'
     find('input[name="commit"]').click
-    p Recipe.last.ingredients
     expect(Recipe.last.ingredients.map(&:quantity)).to eq ['1 cup', '1 tablespoon']
     expect(Recipe.last.ingredients.map(&:name)).to eq ['sugar', 'vanilla']
   end
