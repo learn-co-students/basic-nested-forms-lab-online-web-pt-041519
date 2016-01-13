@@ -1,19 +1,6 @@
 Rails.application.routes.draw do
-  get 'posts/show'
-
-  get 'posts/index'
-
-  get 'posts/new'
-
-  get 'posts/create'
-
-  get 'recipes/show'
-
-  get 'recipes/index'
-
-  get 'recipes/new'
-
-  get 'recipes/create'
+  resources :posts
+  resources :recipes
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
