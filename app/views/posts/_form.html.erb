@@ -1,0 +1,10 @@
+<div class=post-content>
+  <%= @post.content %>
+</div>
+<span class=post-author><%= @post.author.try(:name) %></span>
+<p><%= link_to :edit %></p>
+<%= form_for post do |f| %>
+  <%= f.text_area :content %>
+  <%= f.text_field :author_name %>
+  <%= f.submit %>
+<% end %>
