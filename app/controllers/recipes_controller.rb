@@ -7,11 +7,12 @@ class RecipesController < ApplicationController
   end
 
   def index
-    @recipes = Recipe.all    
+    @recipes = Recipe.all
   end
 
   def new
     @recipe = Recipe.new
+    2.times { @recipe.ingredients.build }
   end
 
   def create
