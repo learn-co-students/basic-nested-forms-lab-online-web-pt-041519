@@ -1,38 +1,23 @@
 require 'rails_helper'
 require 'capybara/rspec'
 
-describe "the song form", :type => :feature do
-  it "creates a song on submit" do
-    visit '/songs/new'
-    fill_in :song_title, with: 'Little Earthquakes'
+describe "the recipe form", :type => :feature do
+  it "sets the title" do
+    visit '/recipes/new'
+    fill_in :recipe_title, with: 'Chocolate Cake'
     find('input[name="commit"]').click
-    expect(Song.last.title).to eq 'Little Earthquakes'
+    expect(Recipe.last.title).to eq 'Chocolate Cake'
   end
 
-  it "creates a song with an artist" do
-    visit '/songs/new'
-    fill_in :song_title, with: 'Little Earthquakes'
-    fill_in :song_artist_name, with: 'Tori Amos'
+  it "adds ingredients" do
+    visit '/recipes/new'
+    fill_in :recipe_ingredients_attributes_0_quantity, with: '1 cup'
+    fill_in :recipe_ingredients_attributes_0_name, with: 'sugar'
+    fill_in :recipe_ingredients_attributes_1_quantity, with: '1 tablespoon'
+    fill_in :recipe_ingredients_attributes_1_name, with: 'vanilla'
     find('input[name="commit"]').click
-    expect(Song.last.artist.name).to eq 'Tori Amos'
-    expect(Artist.find_by(name: 'Tori Amos').songs.pluck(:title)).to include 'Little Earthquakes'
-  end
-
-  it 'creates a song with a genre' do
-    visit '/songs/new'
-    fill_in :song_title, with: 'Little Earthquakes'
-    select 'Alternative', from: 'song_genre_id'
-    find('input[name="commit"]').click
-    expect(Song.last.genre.name).to eq 'Alternative'
-    expect(Genre.find_by(name: 'Alternative').songs.pluck(:title)).to include 'Little Earthquakes'
-  end
-
-  it 'creates a song with notes' do
-    visit '/songs/new'
-    fill_in :song_title, with: 'Little Earthquakes'
-    fill_in :song_notes_1, with: 'great piano'
-    fill_in :song_notes_2, with: 'inaccurate seismology'
-    find('input[name="commit"]').click
-    expect(Song.last.note_contents).to eq ['great piano', 'inaccurate seismology']
+    p Recipe.last.ingredients
+    expect(Recipe.last.ingredients.map(&:quantity)).to eq ['1 cup', '1 tablespoon']
+    expect(Recipe.last.ingredients.map(&:name)).to eq ['sugar', 'vanilla']
   end
 end
