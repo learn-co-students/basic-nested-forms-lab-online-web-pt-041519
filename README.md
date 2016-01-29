@@ -27,3 +27,5 @@ The models and show routes and associations have been set up for you.
 
 2. Build a recipe form that accepts ten ingredients! It should automatically
    create the new `Ingredient` objects.
+
+<p data-visibility='hidden'>View <a href='https://learn.co/lessons/basic-nested-forms-lab' title='Basic Nested Forms Lab'>Basic Nested Forms Lab</a> on Learn.co and start learning to code for free.</p>
