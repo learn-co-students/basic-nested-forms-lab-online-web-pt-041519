@@ -13,12 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20160113004057) do
 
-  create_table "authors", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "ingredients", force: :cascade do |t|
     t.string   "name"
     t.string   "quantity"
@@ -28,12 +22,6 @@ ActiveRecord::Schema.define(version: 20160113004057) do
   end
 
   add_index "ingredients", ["recipe_id"], name: "index_ingredients_on_recipe_id"
-
-  create_table "posts", force: :cascade do |t|
-    t.string   "content"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "recipes", force: :cascade do |t|
     t.string   "title"
