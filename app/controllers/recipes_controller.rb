@@ -30,6 +30,3 @@ class RecipesController < ApplicationController
     )
   end
 end
-
-#Instructions
-#Build a recipe form that accepts two ingredients! It should automatically create the new Ingredient objects.
